@@ -10,7 +10,7 @@ import java.util.List;
 
 @Component
 public class PersonDAO {
-    private final JdbcTemplate jdbcTemplate;
+  /*  private final JdbcTemplate jdbcTemplate;
 
     @Autowired
     public PersonDAO(JdbcTemplate jdbcTemplate) {
@@ -38,5 +38,5 @@ public class PersonDAO {
 
     public void deletePerson(int id){
         jdbcTemplate.update("delete from person where person_id=?", id);
-    }
+    }*/
 }

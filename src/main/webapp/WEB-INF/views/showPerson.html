@@ -11,15 +11,17 @@
 
 <p th:text="${books.isEmpty()} ? 'Человек не взял ни одной книги' : 'Книги:'">value</p>
 <div th:each="book : ${books}">
-    <p th:text="${book.getTitle()+', '+book.getAuthor()+', '+book.getRelease_year()}"></p>
+    <p th:style="${book.isOverdue()} ? 'color:red;' : 'color:black;'"
+            th:text="${book.getTitle()+', '+book.getAuthor()+', '+book.getYear()}"></p>
+
 </div>
 
 <hr/>
-<form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getPerson_id()})}">
+<form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
     <input type="submit" value="Редактировать">
 </form>
 <br/>
-<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPerson_id()})}">
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
     <input type="submit" value="удалить">
 </form>
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск книги</title>
+</head>
+<body>
+<form th:method="GET" th:action="@{/books/search}">
+    <label for="title">Введите поисковый запрос: </label>
+    <input type="text" id="title" name="title" required>
+    <input type="submit" value="Поиск">
+</form>
+
+<p th:unless="${book}">Книг не найдено</p>
+
+<div th:if="${book}">
+<p th:text="${book.getTitle()+','+book.getAuthor()+','+book.getYear()}"></p>
+    <p th:text="${book.getOwner()} ? 'Книга сейчас у:'+${book.getOwner().getName()} : 'Книга свободна'" ></p>
+</div>
+
+</body>
+</html>
